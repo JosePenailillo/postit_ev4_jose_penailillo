@@ -11,25 +11,30 @@ body {
 
 .btn-agregar {
     background-color: var(--colorGrisOscuro);
+    width: 200px;
     text-transform: uppercase;
 }
 
 .input-group {
+    margin-top: 30px;
     display: flex;
     align-items: center;
 }
 #tarea {
-    width: 40px;
-    margin-right: 10px;
+    width: 100px;
+    margin-bottom: 10px;
+    margin-right: 30px;
 }
 #comentario {
-    width: 40px;
+    width: 200px;
+    margin-right: 50px;
+    margin-bottom: 10px;
 }
 
 .checkmark {
     height: 25px;
     width: 25px;
-    margin: auto;
+    margin-right: 200px;
     text-align: center;
 }
 
@@ -54,7 +59,7 @@ li {
 
 ul {
     overflow: hidden;
-    padding: 1em;
+    padding: 4em;
 }
 
 ul li a {
