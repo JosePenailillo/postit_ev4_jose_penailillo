@@ -1,21 +1,21 @@
 :root {
     --colorNormal: #ffffcc;
     --colorImportante: #ec7063;
-    --colorBackGround: #666;
+    --colorBackGround: rgb(224, 219, 219);
     --colorGrisOscuro: #111;
 }
 
 body {
-    background-color: var(--colorBackGround);
+    background: rgb(240,240,240);
+background: linear-gradient(90deg, rgba(240,240,240,0.819765406162465) 4%, rgba(199,212,230,0.5536589635854341) 71%, rgba(14,14,13,0.34637605042016806) 97%);
 }
 
 .btn-agregar {
-    background-color: var(--colorGrisOscuro);
     width: 200px;
-    text-transform: uppercase;
-}
+    text-transform: capitalize;
+} 
 
-.input-group {
+/* .input-group {
     margin-top: 30px;
     display: flex;
     align-items: center;
@@ -30,13 +30,13 @@ body {
     margin-right: 50px;
     margin-bottom: 10px;
 }
-
+*/
 .checkmark {
     height: 25px;
     width: 25px;
     margin-right: 200px;
     text-align: center;
-}
+} 
 
 .text-blanco {
     color: #fff;

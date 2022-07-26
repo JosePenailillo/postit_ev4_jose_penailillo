@@ -16,7 +16,7 @@ export function PostItem({ post, deletePost }) {
   return  <li>
             <a href="#" className={color}>
               <button type="reset" id="delete" className="botonX" onClick={fndeletePost}>X</button>
-              <h2>{titulo}</h2>
+              <h2 className="text-capitalize">{titulo}</h2>
               <p>{descr}</p>
             </a>
           </li>

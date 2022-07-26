@@ -65,38 +65,25 @@ export function PostIt() {
  
   return (
     <Fragment>
-      <h1>Simulador de Post It</h1>
-      <form>
-      <div className="input-group">
-        <input
-          type="text"
-          ref={tituloRef}
-          id= 'tarea'
-          className="form-control ms-2 me-2"
-          placeholder="Ingrese una tarea"
-        />
-        <input
-          type="text"
-          ref={descrRef}
-          id= 'comentario'
-          className="form-control ms-2"
-          placeholder="Comentario"
-        />
-        {/* Botón importante */}
-        <div className="form-check me-5 ms-5">
-          <input className="form-check-input" onClick={cambiarImportancia} type="checkbox" />
+      <h1 className="mt-2 fw-bolder">Simulador de Post It</h1>
+      <form className="row g-3 align-items-center mt-2">
+        <div className="col-auto">
+          <input type="text" class="form-control border-primary" ref={tituloRef} placeholder="Ingrese una titulo"/>
+        </div>
+        <div className="col-md-4 col-sm-7 col-8">
+          <input type="text" class="form-control border-primary" ref={descrRef} placeholder="Descripción"/>
+        </div>
+        <div className="col-auto form-check ms-2">
+        <input className="form-check-input" onClick={cambiarImportancia} type="checkbox" />
           <label className="form-check-label" form="flexCheckDefault">
-            Importante
+          Importante
           </label>
         </div>
-          
-        {/* Boton agregar */}
-        <button type="reset" value="Reset" className="btn btn-agregar me-4 text-blanco" onClick={agregarNota}>
-          Agregar
-        </button>
-        
-      </div>
+        <div className="col-auto">
+          <button type="reset" value='Reset' onClick={agregarNota} className="btn btn-agregar btn-primary">Agregar</button>
+        </div>
       </form>
+      
       {/* Cargar post it */}
       <div>
        <ul>
