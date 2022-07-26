@@ -68,10 +68,10 @@ export function PostIt() {
       <h1 className="mt-2 fw-bolder">Simulador de Post It</h1>
       <form className="row g-3 align-items-center mt-2">
         <div className="col-auto">
-          <input type="text" class="form-control border-primary" ref={tituloRef} placeholder="Ingrese una titulo"/>
+          <input type="text" className="form-control border-primary" ref={tituloRef} placeholder="Ingrese una titulo"/>
         </div>
         <div className="col-md-4 col-sm-7 col-8">
-          <input type="text" class="form-control border-primary" ref={descrRef} placeholder="Descripción"/>
+          <input type="text" className="form-control border-primary" ref={descrRef} placeholder="Descripción"/>
         </div>
         <div className="col-auto form-check ms-2">
         <input className="form-check-input" onClick={cambiarImportancia} type="checkbox" />
