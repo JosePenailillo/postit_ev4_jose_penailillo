@@ -18,20 +18,20 @@ export function PostIt() {
   
   const [posts, setPosts] = useState([]);
   
-  const taskRef = useRef();
+  const tituloRef = useRef();
   const descrRef = useRef();
 
-  const agregarTarea = () => {
+  const agregarNota = () => {
       /* Rescatar el valor del input */
-    const task = taskRef.current.value
-    console.log(task);
+    const titulo = tituloRef.current.value
+    console.log(titulo);
     const descr = descrRef.current.value
     console.log(descr);
     
 
     
 
-    if(task.trim() === '' || descr.trim() === '') return;
+    if(titulo.trim() === '' || descr.trim() === '') return;
     console.log('agregando tarea...');
     
     
@@ -39,26 +39,26 @@ export function PostIt() {
     
     /* Metodo definido por react para operar los elementos */
     setPosts((prevPosts) => {
-      const newTask = {
+      const newPost = {
         id : uuid(),
-        task: task,
+        titulo: titulo,
         descr: descr,
         completed: importancia
       };
      
       
-      return[...prevPosts, newTask]
+      return[...prevPosts, newPost]
 
       
     });
-    taskRef.current.value = null
+    tituloRef.current.value = null
     descrRef.current.value = null
   };
 
-  const deleteTask = (id) => {
+  const deletePost = (id) => {
     console.log(id)
-    const filteredTask = posts.filter(post => post.id !== id)
-    setPosts(filteredTask)
+    const filteredPost = posts.filter(post => post.id !== id)
+    setPosts(filteredPost)
   }
  
 
@@ -70,7 +70,7 @@ export function PostIt() {
       <div className="input-group">
         <input
           type="text"
-          ref={taskRef}
+          ref={tituloRef}
           id= 'tarea'
           className="form-control ms-2 me-2"
           placeholder="Ingrese una tarea"
@@ -91,7 +91,7 @@ export function PostIt() {
         </div>
           
         {/* Boton agregar */}
-        <button type="reset" value="Reset" className="btn btn-agregar me-4 text-blanco" onClick={agregarTarea}>
+        <button type="reset" value="Reset" className="btn btn-agregar me-4 text-blanco" onClick={agregarNota}>
           Agregar
         </button>
         
@@ -101,7 +101,7 @@ export function PostIt() {
       <div>
        <ul>
           {posts.map((post) => (
-            <PostItem post={post} deleteTask={deleteTask} key={post.id} ></PostItem>
+            <PostItem post={post} deletePost={deletePost} key={post.id} ></PostItem>
           ))}
          </ul>
       </div>

@@ -2,21 +2,21 @@ import React from "react";
 import "./style.css";
 
 /* debo recibir los props */
-export function PostItem({ post, deleteTask }) {
-  const { id, task, descr, completed} = post;
+export function PostItem({ post, deletePost }) {
+  const { id, titulo, descr, completed} = post;
   let color;
   if (completed === true) {             
   color = 'importante'
   }
  
-  const fndeleteTask = () => {
-    deleteTask(id)
+  const fndeletePost = () => {
+    deletePost(id)
   }
 
   return  <li>
             <a href="#" className={color}>
-              <button type="reset" id="delete" className="botonX" onClick={fndeleteTask}>X</button>
-              <h2>{task}</h2>
+              <button type="reset" id="delete" className="botonX" onClick={fndeletePost}>X</button>
+              <h2>{titulo}</h2>
               <p>{descr}</p>
             </a>
           </li>
