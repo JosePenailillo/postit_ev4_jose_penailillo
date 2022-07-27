@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import {v4 as uuid} from 'uuid';
 import { PostItem } from "./PostItem";
 import "./style.css";
@@ -20,22 +20,22 @@ export function PostIt() {
   
   const tituloRef = useRef();
   const descrRef = useRef();
-
+  
   const agregarNota = () => {
-      /* Rescatar el valor del input */
+    /* Rescatar el valor del input */
     const titulo = tituloRef.current.value
     console.log(titulo);
     const descr = descrRef.current.value
     console.log(descr);
     
-
     
-
+    
+    
     if(titulo.trim() === '' || descr.trim() === '') return;
-    console.log('agregando tarea...');
+    console.log('agregando tarea...')
     
     
-
+    
     
     /* Metodo definido por react para operar los elementos */
     setPosts((prevPosts) => {
@@ -45,30 +45,34 @@ export function PostIt() {
         descr: descr,
         completed: importancia
       };
-     
+      
       
       return[...prevPosts, newPost]
-
       
     });
-    tituloRef.current.value = null
-    descrRef.current.value = null
+    localStorage.setItem('posts', JSON.stringify(posts));
   };
-
+  
   const deletePost = (id) => {
     console.log(id)
     const filteredPost = posts.filter(post => post.id !== id)
     setPosts(filteredPost)
+    localStorage.removeItem(id)
   }
- 
-
- 
+  
+  useEffect(() => {
+    const posts = () =>JSON.parse(localStorage.getItem('posts'));
+    setPosts(posts);    
+  }, []);
+  
+  
+  
   return (
     <Fragment>
       <h1 className="mt-2 fw-bolder">Simulador de Post It</h1>
       <form className="row g-3 align-items-center mt-2">
         <div className="col-auto">
-          <input type="text" className="form-control border-primary" ref={tituloRef} placeholder="Ingrese una titulo"/>
+          <input type="text" className="form-control border-primary" ref={tituloRef} placeholder="Ingrese un título"/>
         </div>
         <div className="col-md-4 col-sm-7 col-8">
           <input type="text" className="form-control border-primary" ref={descrRef} placeholder="Descripción"/>
@@ -89,7 +93,7 @@ export function PostIt() {
        <ul>
           {posts.map((post) => (
             <PostItem post={post} deletePost={deletePost} key={post.id} ></PostItem>
-          ))}
+            ))}
          </ul>
       </div>
 
