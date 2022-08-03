@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import {v4 as uuid} from 'uuid';
 import { PostItem } from "./PostItem";
 import "./style.css";
@@ -50,20 +50,13 @@ export function PostIt() {
       return[...prevPosts, newPost]
       
     });
-    localStorage.setItem('posts', JSON.stringify(posts));
   };
   
   const deletePost = (id) => {
     console.log(id)
     const filteredPost = posts.filter(post => post.id !== id)
     setPosts(filteredPost)
-    localStorage.removeItem(id)
   }
-  
-  useEffect(() => {
-    const posts = () =>JSON.parse(localStorage.getItem('posts'));
-    setPosts(posts);    
-  }, []);
   
   
   
